@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 // import 'package:flutter/services.dart';
 import 'package:expense_tracker/widgets/expenses.dart';
 
+// choosing a color scheme for light mode
 var kColorScheme = ColorScheme.fromSeed(
   seedColor: const Color.fromARGB(255, 96, 59, 181),
 );
 
+// choosing a color scheme for dark mode
 var kDarkColorScheme = ColorScheme.fromSeed(
   brightness: Brightness.dark,
   seedColor: const Color.fromARGB(255, 5, 99, 125),

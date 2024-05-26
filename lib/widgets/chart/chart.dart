@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:expense_tracker/widgets/chart/chart_bar.dart';
 import 'package:expense_tracker/models/expense.dart';
 
@@ -8,6 +7,7 @@ class Chart extends StatelessWidget {
 
   final List<Expense> expenses;
 
+  /// A getter function to get all buckets for the bar chart
   List<ExpenseBucket> get buckets {
     return [
       ExpenseBucket.forCategory(expenses, Category.food),
@@ -17,6 +17,7 @@ class Chart extends StatelessWidget {
     ];
   }
 
+  /// A getter function to get the category with the maximum total expense
   double get maxTotalExpense {
     double maxTotalExpense = 0;
 
@@ -31,8 +32,10 @@ class Chart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    /// A media query to check if the system is in dark mode
     final isDarkMode =
         MediaQuery.of(context).platformBrightness == Brightness.dark;
+
     return Container(
       margin: const EdgeInsets.all(16),
       padding: const EdgeInsets.symmetric(
@@ -40,7 +43,7 @@ class Chart extends StatelessWidget {
         horizontal: 8,
       ),
       width: double.infinity,
-      height: 180,
+      height: 250,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
         gradient: LinearGradient(
@@ -67,7 +70,7 @@ class Chart extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(height: 12),
+          const SizedBox(height: 15),
           Row(
             children: buckets
                 .map(

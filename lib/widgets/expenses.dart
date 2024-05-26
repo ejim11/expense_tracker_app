@@ -3,7 +3,6 @@ import 'package:expense_tracker/widgets/expense_lists/expenses_list.dart';
 import 'package:expense_tracker/widgets/new_expense.dart';
 import 'package:flutter/material.dart';
 import 'package:expense_tracker/models/expense.dart';
-import 'package:flutter/widgets.dart';
 
 class Expenses extends StatefulWidget {
   const Expenses({super.key});
@@ -15,6 +14,7 @@ class Expenses extends StatefulWidget {
 }
 
 class _ExpensesState extends State<Expenses> {
+  /// a list of all the expenses
   final List<Expense> _registeredExpenses = [
     Expense(
         title: 'Flutter course',
@@ -28,12 +28,14 @@ class _ExpensesState extends State<Expenses> {
         category: Category.leisure)
   ];
 
+  /// a function that adds an expense to the expenses list
   void _addExpenseItem(Expense expense) {
     setState(() {
       _registeredExpenses.add(expense);
     });
   }
 
+  /// a function that removes an expense from the expenses list
   void _removeExpense(Expense expense) {
     final expenseIndex = _registeredExpenses.indexOf(expense);
 
@@ -41,8 +43,10 @@ class _ExpensesState extends State<Expenses> {
       _registeredExpenses.remove(expense);
     });
 
-    // mini notification to show an event has occured
+    /// This clears the snackbar
     ScaffoldMessenger.of(context).clearSnackBars();
+
+    /// This shows the snackbar when an expense item is removed from the expense list
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         duration: const Duration(seconds: 3),
@@ -58,6 +62,7 @@ class _ExpensesState extends State<Expenses> {
     );
   }
 
+  /// This function opens the modal overlay
   void _openAddExpenseOverlay() {
     showModalBottomSheet(
         useSafeArea: true,
@@ -70,6 +75,7 @@ class _ExpensesState extends State<Expenses> {
 
   @override
   Widget build(BuildContext context) {
+    /// This gets the width of the entire screen
     final width = MediaQuery.of(context).size.width;
     // print(MediaQuery.of(context).size.height);
 

@@ -17,6 +17,7 @@ const categoryIcons = {
   Category.work: Icons.work
 };
 
+/// The expense class acts as the model for all expense objects
 class Expense {
   Expense(
       {required this.title,
@@ -31,6 +32,7 @@ class Expense {
   final DateTime date;
   final Category category;
 
+  /// This is a getter function to get a formatted date for the expense
   String get formattedDate {
     return formatter.format(date);
   }
@@ -39,6 +41,7 @@ class Expense {
 class ExpenseBucket {
   const ExpenseBucket({required this.category, required this.expenses});
 
+  /// This is a secondary constructor function that initializes the expenses list to that of the choosen category
   ExpenseBucket.forCategory(List<Expense> allExpenses, this.category)
       : expenses = allExpenses
             .where((expense) => expense.category == category)
@@ -47,6 +50,7 @@ class ExpenseBucket {
   final Category category;
   final List<Expense> expenses;
 
+// This is a getter function that returns the total expenses from a category
   double get totalExpenses {
     double sum = 0;
 
