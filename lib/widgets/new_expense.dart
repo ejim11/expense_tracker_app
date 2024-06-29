@@ -7,6 +7,7 @@ import 'package:expense_tracker/models/expense.dart';
 class NewExpense extends StatefulWidget {
   const NewExpense({super.key, required this.onAddExpense});
 
+// a function to add an expense
   final void Function(Expense expense) onAddExpense;
 
   @override
@@ -16,9 +17,16 @@ class NewExpense extends StatefulWidget {
 }
 
 class _NewExpenseState extends State<NewExpense> {
+  // state to manage title input
   final _titleController = TextEditingController();
+
+  // state to manage amount input
   final _amountController = TextEditingController();
+
+  // state to manage date
   DateTime? _selectedDate;
+
+  // state to manage the selected category
   Category _selectedCategory = Category.leisure;
 
   void _presentDatePicker() async {

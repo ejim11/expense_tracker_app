@@ -5,6 +5,7 @@ import 'package:expense_tracker/models/expense.dart';
 class Chart extends StatelessWidget {
   const Chart({super.key, required this.expenses});
 
+  // list of expenses
   final List<Expense> expenses;
 
   /// A getter function to get all buckets for the bar chart
