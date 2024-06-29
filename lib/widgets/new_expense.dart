@@ -211,6 +211,7 @@ class _NewExpenseState extends State<NewExpense> {
                   )
                 else
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Expanded(
                         child: TextField(
@@ -221,9 +222,6 @@ class _NewExpenseState extends State<NewExpense> {
                             label: Text('Amount'),
                           ),
                         ),
-                      ),
-                      const SizedBox(
-                        width: 16,
                       ),
                       Expanded(
                         child: Row(
